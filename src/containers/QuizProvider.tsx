@@ -124,6 +124,20 @@ export const QuizProvider: React.FC<PropsWithChildren> = ({ children }) => {
   }
 
   useEffect(() => {
+    window.addEventListener('beforeunload', (ev) => {
+      ev.preventDefault()
+
+      sendGoal('lastStep', {
+        'Последний шаг': {
+          [`Шаг ${index.current + 1}`]: index.current + 1,
+        },
+      })
+
+      return (ev.returnValue = '')
+    })
+  }, [])
+
+  useEffect(() => {
     setStartTime(new Date())
   }, [])
 
