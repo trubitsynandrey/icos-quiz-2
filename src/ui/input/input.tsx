@@ -33,7 +33,6 @@ export const Input: React.FC<CustomInputProps> = ({ label, min, name }) => {
       <label className={styles.title}>{label}</label>
       <div className={styles.inputComponent}>
         <CurrencyInput
-          defaultValue={min}
           suffix=" ₽"
           onChange={handleChange}
           placeholder="Введите сумму"
